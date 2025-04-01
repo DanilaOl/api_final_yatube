@@ -56,6 +56,7 @@ class Comment(models.Model):
         db_index=True
     )
 
+
 class Follow(models.Model):
     user = models.ForeignKey(
         User,

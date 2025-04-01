@@ -10,11 +10,6 @@ User = get_user_model()
 
 class PostSerializer(serializers.ModelSerializer):
     author = SlugRelatedField(slug_field='username', read_only=True)
-    # group = serializers.PrimaryKeyRelatedField(
-    #     queryset=Group.objects.all(),
-    #     required=False,
-    #     allow_null=True
-    # )
 
     class Meta:
         fields = '__all__'
@@ -60,6 +55,7 @@ class FollowSerializer(serializers.ModelSerializer):
                 'Нельзя подписаться на самого себя'
             )
         return attrs
+
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
